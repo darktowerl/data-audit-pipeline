@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "a0aa5f13-3644-4fb6-ab41-19b926f929dd",
+      "name": "products"
+    },
+    "batch_definition": {
+      "id": "1abf5305-44bb-4311-88da-de9b7c05cc4c",
+      "name": "products_full"
+    },
+    "datasource": {
+      "id": "340f7653-5ad1-4e1f-b182-d65f6ddf7c59",
+      "name": "olist"
+    }
+  },
+  "id": "5ecd8005-0ea9-4b8b-ad3f-40ee81cc4d0c",
+  "name": "products_val",
+  "suite": {
+    "id": "1dc57a42-0022-4de3-97c9-a02f4ba3fb9b",
+    "name": "products_suite"
+  }
+}

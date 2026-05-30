@@ -1,7 +1,7 @@
-pandas
-numpy
-great_expectations
-matplotlib
-seaborn
-jupyter
-pytest
+pandas~=2.2
+numpy~=2.1
+great-expectations~=1.16
+matplotlib~=3.9
+seaborn~=0.13
+jupyterlab~=4.2
+pytest~=8.3

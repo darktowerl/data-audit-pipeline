@@ -1,0 +1,36 @@
+{
+  "expectations": [
+    {
+      "id": "4af66cd9-f041-4941-86ad-4a155b34f9fb",
+      "kwargs": {
+        "column": "payment_type",
+        "value_set": [
+          "credit_card",
+          "boleto",
+          "voucher",
+          "debit_card"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "9767f06d-456a-4b99-8b86-63d2a6aa32a8",
+      "kwargs": {
+        "column": "payment_value",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "cba24958-6abf-4213-bc9a-bfdff78dd3b6",
+  "meta": {
+    "great_expectations_version": "1.17.2"
+  },
+  "name": "order_payments_suite",
+  "notes": null
+}

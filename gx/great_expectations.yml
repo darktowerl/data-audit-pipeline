@@ -1,0 +1,171 @@
+# Welcome to Great Expectations! Always know what to expect from your data.
+#
+# Here you can define datasources, batch kwargs generators, integrations and
+# more. This file is intended to be committed to your repo. For help with
+# configuration please:
+#   - Read our docs: https://docs.greatexpectations.io/docs/guides/connecting_to_your_data/connect_to_data_overview/#2-configure-your-datasource
+#   - Join our slack channel: http://greatexpectations.io/slack
+
+# config_version refers to the syntactic version of this config file, and is used in maintaining backwards compatibility
+# It is auto-generated and usually does not need to be changed.
+config_version: 4.0
+
+# This config file supports variable substitution which enables: 1) keeping
+# secrets out of source control & 2) environment-based configuration changes
+# such as staging vs prod.
+#
+# When GX encounters substitution syntax (like `my_key: ${my_value}` or
+# `my_key: $my_value`) in the great_expectations.yml file, it will attempt
+# to replace the value of `my_key` with the value from an environment
+# variable `my_value` or a corresponding key read from this config file,
+# which is defined through the `config_variables_file_path`.
+# Environment variables take precedence over variables defined here.
+#
+# Substitution values defined here can be a simple (non-nested) value,
+# nested value such as a dictionary, or an environment variable (i.e. ${ENV_VAR})
+#
+#
+# https://docs.greatexpectations.io/docs/guides/setup/configuring_data_contexts/how_to_configure_credentials
+
+
+config_variables_file_path: uncommitted/config_variables.yml
+
+# The plugins_directory will be added to your python path for custom modules
+# used to override and extend Great Expectations.
+plugins_directory: plugins/
+
+stores:
+# Stores are configurable places to store things like Expectations, Validations
+# Data Docs, and more. These are for advanced users only - most users can simply
+# leave this section alone.
+  expectations_store:
+    class_name: ExpectationsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: expectations/
+
+  validation_results_store:
+    class_name: ValidationResultsStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/validations/
+
+  checkpoint_store:
+    class_name: CheckpointStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      suppress_store_backend_id: true
+      base_directory: checkpoints/
+
+  validation_definition_store:
+    class_name: ValidationDefinitionStore
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: validation_definitions/
+
+expectations_store_name: expectations_store
+validation_results_store_name: validation_results_store
+checkpoint_store_name: checkpoint_store
+
+data_docs_sites:
+  # Data Docs make it simple to visualize data quality in your project. These
+  # include Expectations, Validations & Profiles. The are built for all
+  # Datasources from JSON artifacts in the local repo including validations &
+  # profiles from the uncommitted directory. Read more at https://docs.greatexpectations.io/docs/terms/data_docs
+  local_site:
+    class_name: SiteBuilder
+    show_how_to_buttons: true
+    store_backend:
+      class_name: TupleFilesystemStoreBackend
+      base_directory: uncommitted/data_docs/local_site/
+    site_index_builder:
+      class_name: DefaultSiteIndexBuilder
+fluent_datasources:
+  olist:
+    type: pandas_filesystem
+    id: 340f7653-5ad1-4e1f-b182-d65f6ddf7c59
+    assets:
+      customers:
+        type: csv
+        id: d89c62b2-0c96-45e2-9f7a-d665944eb854
+        batch_definitions:
+          customers_full:
+            id: aeaa59a2-5d1f-4a8b-b132-6a922931d0c8
+            partitioner:
+              regex: olist_customers_dataset.csv$
+              param_names: []
+      orders:
+        type: csv
+        id: dbaed520-c346-49fa-8c3e-c589cb0cf9b9
+        batch_definitions:
+          orders_full:
+            id: 3c5a5084-d05f-4e7a-bec9-4ec7b257ea9a
+            partitioner:
+              regex: olist_orders_dataset.csv$
+              param_names: []
+      order_items:
+        type: csv
+        id: a524d3ee-ebdd-44b4-bd2a-9c81976b397d
+        batch_definitions:
+          order_items_full:
+            id: 0a962d8d-2597-4d86-962d-76c963cf1eb1
+            partitioner:
+              regex: olist_order_items_dataset.csv$
+              param_names: []
+      order_payments:
+        type: csv
+        id: 5c2bd638-376b-497c-b273-8d152474a833
+        batch_definitions:
+          order_payments_full:
+            id: a4959632-5e64-4e92-a95d-80d6df538b1c
+            partitioner:
+              regex: olist_order_payments_dataset.csv$
+              param_names: []
+      order_reviews:
+        type: csv
+        id: a344782e-b138-451c-a880-405b048497b6
+        batch_definitions:
+          order_reviews_full:
+            id: 31f8f8ef-28c4-4779-bce8-7546b6cee7c0
+            partitioner:
+              regex: olist_order_reviews_dataset.csv$
+              param_names: []
+      products:
+        type: csv
+        id: a0aa5f13-3644-4fb6-ab41-19b926f929dd
+        batch_definitions:
+          products_full:
+            id: 1abf5305-44bb-4311-88da-de9b7c05cc4c
+            partitioner:
+              regex: olist_products_dataset.csv$
+              param_names: []
+      sellers:
+        type: csv
+        id: 18584904-f0df-4730-88d4-9d2e77583422
+        batch_definitions:
+          sellers_full:
+            id: 77516154-e9de-4b1f-b829-32e896f98112
+            partitioner:
+              regex: olist_sellers_dataset.csv$
+              param_names: []
+      geolocation:
+        type: csv
+        id: 96f4cb62-6bab-4a3b-a862-371171f64e06
+        batch_definitions:
+          geolocation_full:
+            id: 6e24f81a-9a28-4d2d-8108-17301b43cdb7
+            partitioner:
+              regex: olist_geolocation_dataset.csv$
+              param_names: []
+      category_translation:
+        type: csv
+        id: e474ad54-c9ef-46f2-a5a2-558988aedd04
+        batch_definitions:
+          category_translation_full:
+            id: e523905d-8f8f-4256-bfa8-cc6e5cf1c582
+            partitioner:
+              regex: product_category_name_translation.csv$
+              param_names: []
+    base_directory: data\raw
+analytics_enabled:
+data_context_id: 86c28f9c-b025-4b29-82a9-27a0fe3d1f46

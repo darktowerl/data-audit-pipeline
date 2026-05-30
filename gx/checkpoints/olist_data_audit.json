@@ -1,0 +1,34 @@
+{
+  "actions": [
+    {
+      "name": "update_data_docs",
+      "site_names": [],
+      "type": "update_data_docs"
+    }
+  ],
+  "id": "3f468ecd-b95a-4252-85b6-8dc615e9a8ae",
+  "name": "olist_data_audit",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "12baed67-59cb-4794-aa38-4bd66ad5ecf1",
+      "name": "orders_validation"
+    },
+    {
+      "id": "7306817a-ce65-4d2c-8058-c6716deb3c98",
+      "name": "order_items_val"
+    },
+    {
+      "id": "2c11027c-8ed4-4359-820d-43d59c95d900",
+      "name": "payments_val"
+    },
+    {
+      "id": "5ecd8005-0ea9-4b8b-ad3f-40ee81cc4d0c",
+      "name": "products_val"
+    },
+    {
+      "id": "dfe2914a-c46d-4941-b2b0-1f8dec3962c4",
+      "name": "reviews_val"
+    }
+  ]
+}

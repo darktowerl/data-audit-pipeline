@@ -1,0 +1,39 @@
+{
+  "expectations": [
+    {
+      "id": "14d0ab9b-e7e2-4c00-9948-6311a5b53aa7",
+      "kwargs": {
+        "column": "product_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "a4b86aac-f8ab-469a-b23c-fa9af3d80c55",
+      "kwargs": {
+        "column": "product_category_name"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "6f209354-806f-4a58-b066-5e8090bc70db",
+      "kwargs": {
+        "column": "product_weight_g",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "1dc57a42-0022-4de3-97c9-a02f4ba3fb9b",
+  "meta": {
+    "great_expectations_version": "1.17.2"
+  },
+  "name": "products_suite",
+  "notes": null
+}

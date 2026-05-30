@@ -1,0 +1,104 @@
+{
+  "expectations": [
+    {
+      "id": "0ddbbb3f-98ac-4286-91f5-da6af81dd057",
+      "kwargs": {
+        "column_set": [
+          "order_id",
+          "customer_id",
+          "order_status",
+          "order_purchase_timestamp",
+          "order_approved_at",
+          "order_delivered_carrier_date",
+          "order_delivered_customer_date",
+          "order_estimated_delivery_date"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_columns_to_match_set"
+    },
+    {
+      "id": "7882d3f3-fdbc-4f22-9335-be1a72c89008",
+      "kwargs": {
+        "column": "order_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "75142021-fb37-4991-a0b3-06a327595de0",
+      "kwargs": {
+        "column": "order_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "ae2ab79b-5da7-4c80-ac38-8d6880847069",
+      "kwargs": {
+        "column": "customer_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "7270f6b3-d2db-481b-9404-2999241b828f",
+      "kwargs": {
+        "column": "order_status",
+        "value_set": [
+          "delivered",
+          "shipped",
+          "canceled",
+          "unavailable",
+          "invoiced",
+          "processing",
+          "created",
+          "approved"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "a222a7d8-f3b3-4e7a-87fd-76886c90678d",
+      "kwargs": {
+        "column": "order_purchase_timestamp"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "b5381a1b-2ade-4b41-98c0-5d03d1523bed",
+      "kwargs": {
+        "column": "order_purchase_timestamp",
+        "strftime_format": "%Y-%m-%d %H:%M:%S"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_match_strftime_format"
+    },
+    {
+      "id": "97883e07-1984-4bac-8165-19b69efc75a5",
+      "kwargs": {
+        "column": "order_purchase_timestamp",
+        "max_value": "2019-12-31T23:59:59",
+        "min_value": "2016-01-01T00:00:00"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "c6291d41-406d-4ff7-85d1-e3b84a21305a",
+  "meta": {
+    "great_expectations_version": "1.17.2"
+  },
+  "name": "orders_suite",
+  "notes": null
+}

@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {
+      "id": "4e9c41eb-f248-494f-ab66-caa3cf2a8bdf",
+      "kwargs": {
+        "column": "review_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "9b9e49ad-5d76-475f-8504-860ff39645da",
+      "kwargs": {
+        "column": "review_score",
+        "max_value": 5.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "4b9e4dba-2c03-43d5-8cc4-778cf94b7eba",
+  "meta": {
+    "great_expectations_version": "1.17.2"
+  },
+  "name": "order_reviews_suite",
+  "notes": null
+}
